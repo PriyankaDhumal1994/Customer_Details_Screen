@@ -1,0 +1,30 @@
+{
+    "private_customer":[{
+        "type":"PRIVATE",
+        "bank":"HDFC",
+        "branch":"Pune"
+    },{
+        "type":"PRIVATE",
+        "bank":"ICICI",
+        "branch":"Mumbai"
+    },{
+        "type":"PRIVATE",
+        "bank":"AXIS",
+        "branch":"Nagpur"
+    }
+    ],
+    "public_customer":[{
+        "type":"PUBLIC",
+        "bank":"SBI",
+        "branch":"Pune"
+    },{
+        "type":"PUBLIC",
+        "bank":"PDC",
+        "branch":"Pune"
+    },{
+        "type":"PUBLIC",
+        "bank":"Maharashtra",
+        "branch":"Nagpur"
+    }
+    ]
+}

@@ -1,13 +1,261 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  width: 98vw;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.userToolbar {
+  margin: 2px 3px 0px 10px;
+}
+
+.userToolbar > p {
+  margin-bottom: 0px;
+  font-size: 1.5rem;
+}
+
+.userToolbar div p {
+  flex-basis: 10%;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-right: 12px;
+  margin-bottom: 3px;
+}
+
+.userToolbar div p:hover {
+  background-color: #eee;
+}
+
+.light-gray {
+  background-color: #eee;
+}
+
+/* spinner at center position */
+
+.text-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 600;
+}
+
+/* active page highlight in pagination */
+.active-a {
+  background-color: #428bca !important;
+  color: white !important;
+}
+
+.user-cards {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: -5px !important;
+}
+
+.card-title > P {
+  margin-bottom: "0px";
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.addUserWrapper {
+  height: auto;
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  width: 50%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px #bbb;
+  padding-bottom: 5px;
+  left: 22%;
+  top: 15%;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.addUserWrapper .addUserHeader {
+  background-color: #107dac;
+  color: white;
+  display: flex;
+  padding: 10px;
+}
+
+.addUserHeader > p {
+  text-align: center;
+  margin-bottom: 0px;
+  flex-basis: 98%;
+  font-size: 1.5rem;
+}
+
+.addUserHeader > div {
+  margin-left: auto;
+}
+
+.add-user,
+.add-user-form {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.graph {
+  flex: 0 0 50%;
+  width: 100%;
+  background-color: white;
+}
+
+.nested li i:hover {
+  border: 2px solid #eee;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.add-fields {
+  flex: 0 0 50%;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.form-button {
+  flex: 0 0 100%;
+  margin: 10px 0px 0px 2px !important;
+  padding: 0px;
+}
+
+.add-fields input {
+  display: block;
+  margin: 10px;
+  padding: 8px;
+  width: 95%;
+  border-radius: 2px;
+  border: none;
+  box-sizing: border-box;
+  background-color: #eee;
+}
+
+.deleteUser {
+  width: 20%;
+  background-color: white;
+  position: fixed;
+  z-index: 200;
+  box-shadow: 1px 1px 2px #bbb;
+  top: 30%;
+  left: 40%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.deleteUser .fbutton,
+.lbutton {
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.deleteUser .fbutton {
+  background-color: rgb(231, 76, 60);
+  color: white;
+  border: none;
+}
+
+.deleteUser .lbutton {
+  background-color: #107dac;
+  color: white;
+  border-color: #107dac;
+  margin-left: 5px;
+}
+
+.card-body {
+  padding: 1rem !important;
+}
+.card-body img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.card .card-header {
+  display: flex;
+  padding: 12px 15px;
+  background-color: #428bca;
+}
+
+.card .icons {
+  margin-left: auto;
+}
+
+.card div i {
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .userToolbar div p {
+    flex-basis: 30% !important;
+  }
+  .deleteUser {
+    width: 25%;
+  }
+
+  .deleteUser .fbutton {
+    margin: 0px 0px 5px 0px !important;
+  }
+
+  .deleteUser .lbutton {
+    margin-left: 0px;
+  }
+
+  .add-user-form {
+    flex-direction: column;
+    height: 350px;
+    overflow-y: scroll;
+    scrollbar-width: thin !important;
+    flex-wrap: nowrap;
+  }
+
+  ::-webkit-scrollbar {
+    height: 12px;
+    width: 8px;
+    background: #eee;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #aaa;
+    -webkit-border-radius: 1ex;
+  }
+
+  .form-button {
+    flex: 0 0 0;
+  }
+
+  .c1 {
+    max-width: 100% !important;
+    flex: 0px 0px 0px !important;
+  }
 }

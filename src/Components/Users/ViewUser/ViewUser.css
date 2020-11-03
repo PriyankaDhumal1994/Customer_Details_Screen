@@ -1,0 +1,73 @@
+.viewUserWrapper {
+  width: 50%;
+  /* height: 60%; */
+  padding-bottom: 5px;
+  background-color: white;
+  position: fixed;
+  left: 22%;
+  top: 15%;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 2px #ccc;
+  z-index: 500;
+  border: 1px solid #ccc;
+}
+
+.viewUserHeader {
+  background-color: #107dac;
+  color: white;
+  display: flex;
+  padding: 10px;
+}
+
+.viewUserHeader > p {
+  text-align: center;
+  margin-bottom: 0px;
+  flex-basis: 98%;
+  font-size: 1.5rem;
+}
+
+.viewUserHeader > div {
+  margin-left: auto;
+}
+
+.viewContaner {
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+}
+
+/* .viewContaner > div:nth-child(2) div {
+  background-color: lightseagreen;
+  padding: 10px;
+} */
+
+.viewContaner .viewImg {
+  flex-basis: 30%;
+}
+
+.viewContaner .viewDetails {
+  flex-basis: 70%;
+  margin-left: 8px;
+  /* overflow-y: scroll; */
+}
+
+@media (max-width: 500px) {
+  .viewContaner {
+    flex-direction: column;
+    height: 350px;
+    overflow-y: scroll;
+  }
+
+  .viewContaner .viewDetails {
+    flex-basis: 0;
+  }
+
+  .viewDetails div {
+    margin-top: 5px;
+  }
+
+  .viewContaner .viewImg {
+    flex-basis: 0;
+  }
+}
