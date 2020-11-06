@@ -26,7 +26,7 @@ export const makeRequest = (req_type, url, data) => {
         });
     case "PUT":
       return axios
-        .post(url, data)
+        .put(url, data)
         .then((res) => {
           console.log("user updated successfully", res);
           return res;
