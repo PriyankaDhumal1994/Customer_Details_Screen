@@ -2,6 +2,7 @@ import React from "react";
 
 const Pagination = ({ totalPosts, pageHandler, activePage }) => {
   let pages = [];
+  console.log("inside return");
   for (let i = 1; i <= totalPosts; i++) {
     pages.push(i);
   }

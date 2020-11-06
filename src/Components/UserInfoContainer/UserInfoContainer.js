@@ -1,14 +1,20 @@
-import React, { useState, useEffect, useCallback, useReducer } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useReducer,
+  Suspense,
+} from "react";
 import UserCards from "../Users/UserCards";
 import Pagination from "../Users/Pagination";
 import UserToolbar from "../Users/UserToolbar";
-import AddUserWrapper from "../Users/AddUser/AddUserWrapper";
+import { AddUserLazyLoad } from "../LazyLoading/LazyLoading";
 import DeleteUser from "../Users/DeleteUser";
 import Spinner from "../UI/Spinner";
 import Backdrop from "../UI/Backdrop";
 import ViewUser from "../Users/ViewUser/ViewUser";
-import { makeRequest } from "../../API_Https/makeRequest";
-import { API_PATHS } from "../../API_Https/API_Paths";
+import { makeRequest } from "../../API/makeRequest";
+import { API_PATHS } from "../../API/API_Paths";
 
 const httpsReducer = (state, action) => {
   switch (action.type) {
@@ -87,9 +93,12 @@ const UserInfoContainer = () => {
       let path = API_PATHS.USER_POST_REQ;
       if (updateUserData && updateUserData.id > 0) {
         path = path + `/${updateUserData.id}`;
+        let response = makeRequest("PUT", path, userEnteredData);
+        console.log("API call response:", response);
+      } else {
+        let response = makeRequest("POST", path, userEnteredData);
+        console.log("API call response:", response);
       }
-      let response = makeRequest("POST", path, userEnteredData);
-      console.log("API call response:", response);
       setAddUser(false);
       setUpdateUserData(null);
       dispatch({ type: "RESPONSE" });
@@ -153,11 +162,15 @@ const UserInfoContainer = () => {
         />
       ) : null}
       {addUser ? (
-        <AddUserWrapper
-          closeUserHandler={closeUserHandler}
-          submitAddedUserData={submitAddedUserData}
-          updateUserData={updateUserData}
-        />
+        <div>
+          <Suspense fallback={<Spinner />}>
+            <AddUserLazyLoad
+              closeUserHandler={closeUserHandler}
+              submitAddedUserData={submitAddedUserData}
+              updateUserData={updateUserData}
+            />
+          </Suspense>
+        </div>
       ) : null}
       {isViewUser && (
         <ViewUser

@@ -17,7 +17,18 @@ export const makeRequest = (req_type, url, data) => {
       return axios
         .post(url, data)
         .then((res) => {
-          console.log("user added/updated successfully", res);
+          console.log("user added successfully", res);
+          return res;
+        })
+        .catch((err) => {
+          console.log(err.message);
+          return err.message;
+        });
+    case "PUT":
+      return axios
+        .post(url, data)
+        .then((res) => {
+          console.log("user updated successfully", res);
           return res;
         })
         .catch((err) => {
